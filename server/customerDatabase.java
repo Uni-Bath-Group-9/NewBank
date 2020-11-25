@@ -52,6 +52,8 @@ public class customerDatabase {
         return customers.get(customerID);
     }
 
+    // Update customer accounts
+
     public void updateCustomerAccount(Customer customer){
         String customerID = customer.getCustomerID();
         customers.replace(customerID, customer);
