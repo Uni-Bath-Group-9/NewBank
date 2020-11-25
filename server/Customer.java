@@ -26,13 +26,14 @@ public class Customer {
 		accounts.add(account);		
 	}
 
+	// Check if the password is correct
 	public boolean isPasswordCorrect(String password){
 		return this.password.equals(password);
 	}
 
+	// Get customerID
 	public String getCustomerID(){
 		return this.customerID;
 	}
-
 
 }
