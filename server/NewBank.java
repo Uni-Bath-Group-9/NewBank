@@ -30,10 +30,11 @@ public class NewBank {
 	// commands from the NewBank customer are processed in this method
 	public synchronized String processRequest(String customerID, String request) {
 		Customer customer = customers.getCustomer(customerID);
+		String[] inputRequest = request.split(" ");
 		if( customer !=null){
-			switch(request) {
+			switch(inputRequest[0]) {
 			case "SHOWMYACCOUNTS" : return showMyAccounts(customer);
-			case "NEWACCOUNT" : return createNewAccount(customer, customerID);
+			case "NEWACCOUNT" : return createNewAccount(customer, inputRequest[1]);
 			default : return "FAIL";
 			}
 		}
@@ -45,12 +46,12 @@ public class NewBank {
 	}
 
 
-	// Create a new newaccount
+	// Create a new new account
 
-	private String newAccount(Customer customer, String accountName){
+	private String createNewAccount(Customer customer, String accountName){
 		customer.addAccount(new Account(accountName, 0.0));
 		customers.updateCustomerAccount(customer);
-		return "Successful";
+		return "SUCCESS";
 	}
 
 }
