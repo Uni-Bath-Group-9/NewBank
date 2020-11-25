@@ -1,3 +1,8 @@
+
+/*
+ * Customers database to hold customers information 
+ */
+
 package server;
 
 import java.util.HashMap;
@@ -11,7 +16,7 @@ public class customerDatabase {
         customers = new HashMap<>();
         addTestData();
     }
-
+    //  Test data into the database
     private void addTestData(){
         Customer bhagy = new Customer("bhagy", "bhagy1");
 		bhagy.addAccount(new Account("Main", 1000.0));
@@ -35,17 +40,20 @@ public class customerDatabase {
        
 
     }
-
+    // Method to add customers to the HashMap
     public void addCustomers(Customer customer){
         String customerID = customer.getCustomerID();
         customers.put(customerID,customer);
     }
 
-
+    // Get a customers ID from the customers database.
     public Customer getCustomer(String customerID){
         customerID = customerID.toLowerCase();
         return customers.get(customerID);
     }
 
-    
+    public void updateCustomerAccount(Customer customer){
+        String customerID = customer.getCustomerID();
+        customers.replace(customerID, customer);
+    }
 }
