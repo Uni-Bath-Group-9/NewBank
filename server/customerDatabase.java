@@ -28,6 +28,12 @@ public class customerDatabase {
         // customers.put("John", john);
         addCustomers(john);
 
+        Customer kd = new Customer("KD", "kd1");
+        kd.addAccount(new Account("Checking", 300.00));
+        // customers.put("KD", kd);
+        addCustomers(kd);
+       
+
     }
 
     public void addCustomers(Customer customer){
