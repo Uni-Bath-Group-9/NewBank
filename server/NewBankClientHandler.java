@@ -36,7 +36,7 @@ public class NewBankClientHandler extends Thread{
 				if(customer != null) {
 					out.println("Log In Successful");
 					out.println("Here are your options:");
-					out.println("SHOWMYACCOUNTS: Show balance");
+					out.println("Option 1: SHOWMYACCOUNTS - Show balance");
 					
 					while(true) {
 						String request = in.readLine();
