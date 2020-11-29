@@ -22,4 +22,8 @@ public class Account {
 		return openingBalance;
 	}
 
+	public void updateBalance(double newBal){
+		openingBalance = newBal;
+	}
+
 }

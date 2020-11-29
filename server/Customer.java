@@ -51,4 +51,31 @@ public class Customer {
 		}		
 		return balance;						
 	}
+
+	public void withdrawAmt(String name, double amt){
+		for (Account a: accounts){
+			if (a.getAccountName().equals(name)){
+				double current = a.getBalance();
+				double result = current - amt;
+				if (result < 0){
+					result = 0;
+				}
+				a.updateBalance(result);
+			}
+		}
+	}
+
+	public void creditAmt(String name, double amt){
+		for (Account a: accounts){
+			if (a.getAccountName().equals(name)){
+				double current = a.getBalance();
+				double result = current + amt;
+				a.updateBalance(result);
+			}
+		}
+	}
+
+
+
+
 }

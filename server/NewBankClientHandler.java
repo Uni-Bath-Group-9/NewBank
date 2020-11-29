@@ -39,6 +39,8 @@ public class NewBankClientHandler extends Thread{
 					out.println("Option 1: BALANCE [accountName] - Show balance");
 					out.println("Option 2: NEWACCOUNT [accountName] - Create account");
 					out.println("Option 3: SHOWMYACCOUNTS - Show all accounts and balances");
+					out.println("Option 4: WITHDRAW [account] [amount] - Withdraw funds");
+					out.println("Option 5: TRANSFER [account] [amount] [recipient] [account] - Transfer funds");
 					
 					while(true) {
 						String request = in.readLine();
