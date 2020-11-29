@@ -36,4 +36,19 @@ public class Customer {
 		return this.customerID;
 	}
 
+	// Get accounts
+	public ArrayList<Account> getAccounts(){
+		return accounts;
+	}
+
+	// Get account balance
+	public double getBal(String name){
+		double balance = 0.0;
+		for (Account a:accounts){
+			if (a.getAccountName().equals(name)){
+				balance = a.getBalance();
+			}
+		}		
+		return balance;						
+	}
 }
