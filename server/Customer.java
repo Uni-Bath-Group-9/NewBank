@@ -36,4 +36,46 @@ public class Customer {
 		return this.customerID;
 	}
 
+	// Get accounts
+	public ArrayList<Account> getAccounts(){
+		return accounts;
+	}
+
+	// Get account balance
+	public double getBal(String name){
+		double balance = 0.0;
+		for (Account a:accounts){
+			if (a.getAccountName().equals(name)){
+				balance = a.getBalance();
+			}
+		}		
+		return balance;						
+	}
+
+	public void withdrawAmt(String name, double amt){
+		for (Account a: accounts){
+			if (a.getAccountName().equals(name)){
+				double current = a.getBalance();
+				double result = current - amt;
+				if (result < 0){
+					result = 0;
+				}
+				a.updateBalance(result);
+			}
+		}
+	}
+
+	public void creditAmt(String name, double amt){
+		for (Account a: accounts){
+			if (a.getAccountName().equals(name)){
+				double current = a.getBalance();
+				double result = current + amt;
+				a.updateBalance(result);
+			}
+		}
+	}
+
+
+
+
 }
