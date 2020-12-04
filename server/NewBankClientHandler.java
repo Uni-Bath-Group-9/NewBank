@@ -12,7 +12,6 @@ public class NewBankClientHandler extends Thread{
 	private BufferedReader in;
 	private PrintWriter out;
 	
-	
 	public NewBankClientHandler(Socket s) throws IOException {
 		bank = NewBank.getBank();
 		in = new BufferedReader(new InputStreamReader(s.getInputStream()));
@@ -21,6 +20,7 @@ public class NewBankClientHandler extends Thread{
 	
 	public void run() {
 		// keep getting requests from the client and processing them
+		boolean sendRequest = false;
 		try {
 			while(true){
 				// ask for user name
@@ -42,11 +42,16 @@ public class NewBankClientHandler extends Thread{
 					out.println("Option 4: WITHDRAW [account] [amount] - Withdraw funds");
 					out.println("Option 5: TRANSFER [account] [amount] [recipient] [account] - Transfer funds");
 					
-					while(true) {
+					while(sendRequest == false) {
+						out.println("Please enter your option:");
 						String request = in.readLine();
-						System.out.println("Request from " + customer.getCustomerID());
-						String responce = bank.processRequest(customer.getCustomerID(), request);
-						out.println(responce);
+						sendRequest = checkRequestError (request);
+						if (sendRequest ==true) {
+							out.println("Request from " + customer.getCustomerID());
+							String responce = bank.processRequest(customer.getCustomerID(), request);
+							out.println(responce);
+						}
+						sendRequest = false;
 					}
 				}
 				else {
@@ -67,5 +72,41 @@ public class NewBankClientHandler extends Thread{
 			}
 		}
 	}
+	private boolean checkRequestError(String request) {
+		String[] inputRequest = request.split(" ");
 
+			switch(inputRequest[0]) {
+				case "SHOWMYACCOUNTS" : return true;
+				case "NEWACCOUNT" :
+					if (inputRequest.length<2){
+						out.println("Please enter account type");
+						out.println("Try again.");
+						return false;
+					}
+					else {return true ;}
+				case "BALANCE" :
+					if (inputRequest.length<2){
+						out.println("Please enter account type after BALANCE");
+						out.println("Try again.");
+						return false;
+					}
+					else {return true ;}
+				case "WITHDRAW" :
+					if (inputRequest.length<3){
+						out.println("Please enter account and amount");
+						out.println("Try again.");
+						return false;
+					}
+					else {return true ;}
+				case "TRANSFER" :
+					if (inputRequest.length<5){
+						out.println("Please enter account, amount, recipient and account");
+						out.println("Try again.");
+						return false;
+					}
+					else {return true ;}
+					default : return false;
+
+		}
+	}
 }
