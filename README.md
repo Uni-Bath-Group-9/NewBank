@@ -12,19 +12,19 @@
 
 * In your terminal:
         
-    $ git clone https://github.com/Uni-Bath-Group-9/NewBank.git
-    $ cd NewBank
-    $ While in the NewBank folder, if you re using VS Code type code . and the editor should start. Otherwise you are free to use your favourite IDE to open the project. 
+        $ git clone https://github.com/Uni-Bath-Group-9/NewBank.git
+        $ cd NewBank
+        $ While in the NewBank folder, if you re using VS Code type code . and the editor should start. Otherwise you are free to use your favourite IDE to open the project. 
 
 
 ## Running Newbank
 
-$ Run the server by running the file /server/NewBankServer.java
-$ Run the client by running the file /client/ExampleClient.java
+* Run the server by running the file /server/NewBankServer.java
+* Run the client by running the file /client/ExampleClient.java
 
 ## Customer Commands
 
-$ log is using youe username and password. Assumtion is that there is a user account alredy created.
+log is using youe username and password. Assumtion is that there is a user account alredy created.
 
 ## Customer Commands
 
