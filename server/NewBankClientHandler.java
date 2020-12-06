@@ -32,6 +32,7 @@ public class NewBankClientHandler extends Thread{
 				out.println("Checking Details...");
 				// authenticate user and get customer ID token from bank for use in subsequent requests
 				Customer customer = bank.checkLogInDetails(userName, password);
+				Admin admin = bank.checkLogInDetailsAdmin(userName, password);
 				// if the user is authenticated then get requests from the user and process them 
 				if(customer != null) {
 					out.println("Log In Successful");
@@ -54,6 +55,25 @@ public class NewBankClientHandler extends Thread{
 						sendRequest = false;
 					}
 				}
+				else if(admin != null) {
+						out.println("Admin Log In Successful");
+						out.println("Here are your options:");
+						out.println("Option 1: SHOWCUSTOMERACCOUNTS [accountName] - Show balance");
+						out.println("Option 2: TRANSFER [payer] [account] [amount] [recipient] [account] - Transfer funds");
+
+						while(sendRequest == false) {
+							out.println("Please enter your option:");
+							String request = in.readLine();
+							sendRequest = checkRequestError (request);
+							if (sendRequest ==true) {
+								out.println("Request from " + customer.getCustomerID());
+								String responce = bank.processRequest(customer.getCustomerID(), request);
+								out.println(responce);
+							}
+							sendRequest = false;
+						}
+				}
+
 				else {
 					out.println("Log In Failed");
 				}
