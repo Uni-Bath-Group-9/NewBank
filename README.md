@@ -4,11 +4,11 @@
 
 ## SetUp / Installation Requirements
 
-### Prerequisites
+## Prerequisites
 
 * Java
 
-### Cloning
+## Cloning
 
 * In your terminal:
         
@@ -30,7 +30,7 @@ $ log is using youe username and password. Assumtion is that there is a user acc
 
 Guide to the protocol for interacting with the NewBank application. After logging in, a customer enters one of the commands below depending on what activity they would like to perform:
 
-### Customer Commands
+## Customer Commands
 
 | Command | Description | Example
 | --- | --- | --- |
@@ -41,5 +41,5 @@ Guide to the protocol for interacting with the NewBank application. After loggin
 | `TRANSFER [account] [amount] [recipient] [account]` | Transfers money from a logged in user account to another existing account. Returns `SUCCESS` or `FAIL`| Example: `TRANSFER Savings 200 John Checking`|
 
 
-### Customer Commands
+## Customer Commands
 
