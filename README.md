@@ -2,11 +2,11 @@
 
 ## Getting Started
 
-## SetUp / Installation Requirements
+## Setup/Requirements
 
 ## Prerequisites
 
-* Java
+* Java 
 
 ## Cloning
 
@@ -14,17 +14,18 @@
         
         $ git clone https://github.com/Uni-Bath-Group-9/NewBank.git
         $ cd NewBank
-        $ While in the NewBank folder, if you re using VS Code type code . and the editor should start. Otherwise you are free to use your favourite IDE to open the project. 
+        $ While in the NewBank folder, if you are using VS Code type code . and the editor should start. \nOtherwise you are free to use your favourite IDE to open the project. 
 
 
 ## Running Newbank
 
-* Run the server by running the file /server/NewBankServer.java
-* Run the client by running the file /client/ExampleClient.java
+* Run the server by running the file .//server/NewBankServer.java
+* Run the client by running the file .//client/ExampleClient.java
 
 ## Customer Commands
 
-log is using youe username and password. Assumtion is that there is a user account alredy created.
+Login using your username and password. Assumption is that there is a user account already created.
+To do.... Add instruction for creating a new account as an admin.
 
 ## Customer Commands
 
