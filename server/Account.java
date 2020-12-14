@@ -1,4 +1,4 @@
-package newbank.server;
+package server;
 
 public class Account {
 	
@@ -12,6 +12,18 @@ public class Account {
 	
 	public String toString() {
 		return (accountName + ": " + openingBalance);
+	}
+
+	public String getAccountName(){
+		return accountName;
+	}
+
+	public double getBalance(){
+		return openingBalance;
+	}
+
+	public void updateBalance(double newBal){
+		openingBalance = newBal;
 	}
 
 }
